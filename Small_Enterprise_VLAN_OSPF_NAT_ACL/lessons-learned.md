@@ -1,9 +1,5 @@
 # Lessons Learned
 
-This section distills the most important takeaways from the project into **five concrete lessons**. These reflect issues encountered during real implementation and validation.
-
----
-
 ## Technical Lessons
 
 * **ACLs are stateless, and rule order directly affects return traffic.**
@@ -15,7 +11,6 @@ This section distills the most important takeaways from the project into **five 
 * **NAT must be centralized at the network edge to preserve valid return paths.**
   Placing NAT anywhere other than the edge router leads to broken internet connectivity because private IPs are not routable externally.
 
----
 
 ## Design & Process Lessons
 
@@ -25,6 +20,3 @@ This section distills the most important takeaways from the project into **five 
 * **Structured troubleshooting is more effective than command-driven guessing.**
   Using a consistent symptom → root cause → fix → verification workflow prevented misdiagnosis and reduced configuration churn across layers.
 
----
-
-These lessons informed both the final network design and the troubleshooting methodology used throughout the project.
