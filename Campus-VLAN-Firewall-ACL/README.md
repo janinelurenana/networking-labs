@@ -192,7 +192,6 @@ Every design claim in this README is backed by either a config file or a verific
 ```
 .
 ├── README.md
-├── topology.png
 ├── configs/
 │   ├── README.md
 │   ├── core-l3.txt
