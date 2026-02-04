@@ -41,17 +41,6 @@ These constraints prevent scope creep and mirror small-to-mid scale enterprise e
 
 ![Network Topology](./verification/topology.png)
 
-**High-level flow:**
-
-```
-[ Internet / Cloud ]
-        |
-   [ FortiGate ]
-        |
-  [ Core L3 Switch ]
-   /       |       \
-[Access] [Access] [Access]
-```
 
 ---
 
