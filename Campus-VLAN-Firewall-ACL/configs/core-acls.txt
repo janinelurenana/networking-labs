@@ -2,7 +2,7 @@
 ! Core L3 – East–West ACLs
 !
 ip access-list extended ACL_IT_IN
- permit icmp any any echo-reply (10 matches)
+ permit icmp any any echo-reply
  permit tcp any any established
  permit ip 10.10.10.0 0.0.0.255 10.10.20.0 0.0.0.255 
  permit ip 10.10.10.0 0.0.0.255 10.10.30.0 0.0.0.255
