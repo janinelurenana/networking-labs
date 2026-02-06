@@ -46,5 +46,6 @@ interface vlan 30
 !
 interface vlan 40
  ip access-group ACL_GUEST_IN in
+ no ip unreachables
 !
 
