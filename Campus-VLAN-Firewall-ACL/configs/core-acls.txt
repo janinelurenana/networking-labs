@@ -37,12 +37,15 @@ ip access-list extended ACL_GUEST_IN
 !
 interface vlan 10
  ip access-group ACL_IT_IN in
+ no ip unreachables
 !
 interface vlan 20
  ip access-group ACL_MGMT_IN in
+ no ip unreachables
 !
 interface vlan 30
  ip access-group ACL_HR_IN in
+ no ip unreachables
 !
 interface vlan 40
  ip access-group ACL_GUEST_IN in
