@@ -123,6 +123,16 @@ Default behavior is **deny**. Only explicit business needs are permitted.
 
 ---
 
+## Stealth Filtering (RFC 1812 Compliance)
+
+By default, when an ACL denies a packet, the switch sends an ICMP "Administratively Prohibited" message back to the source. While helpful for troubleshooting, this confirms the existence of a Layer 3 gateway and a security boundary to a potential attacker.
+
+* Implementation: The no ip unreachables command is applied to all internal SVIs, specifically VLAN 40 (Guest).
+
+* Security Outcome: Attempts to probe internal subnets from the Guest VLAN result in a silent "Request Timed Out" rather than an explicit rejection. This forces an attacker to guess whether a host is offline or protected by a firewall, significantly slowing down the reconnaissance phase.
+
+---
+
 ## Firewall Design (North–South)
 
 ### Interface Roles
