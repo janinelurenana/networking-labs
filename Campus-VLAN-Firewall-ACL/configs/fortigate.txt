@@ -35,6 +35,18 @@ config router static
 end
 
 config firewall policy
+    edit 5
+        set name "GUEST_to_INTERNAL_DENY"
+        set srcintf "ZONE_INTERNAL"
+        set dstintf "ZONE_INTERNAL"
+        set srcaddr "GUEST_SUBNET"
+        set dstaddr "IT_SUBNET" "MGMT_SUBNET" "HR_SUBNET"
+        set service "ALL"
+        set schedule "always"
+        set action deny
+        set logtraffic all
+    next
+    
     edit 1
         set name "IT_to_WAN"
         set srcintf "ZONE_INTERNAL"
@@ -84,18 +96,6 @@ config firewall policy
         set schedule "always"
         set action accept
         set nat enable
-        set logtraffic all
-    next
-
-    edit 5
-        set name "GUEST_to_INTERNAL_DENY"
-        set srcintf "ZONE_INTERNAL"
-        set dstintf "ZONE_INTERNAL"
-        set srcaddr "GUEST_SUBNET"
-        set dstaddr "IT_SUBNET" "MGMT_SUBNET" "HR_SUBNET"
-        set service "ALL"
-        set schedule "always"
-        set action deny
         set logtraffic all
     next
 end
