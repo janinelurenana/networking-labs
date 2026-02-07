@@ -182,6 +182,25 @@ The network utilizes a hybrid DHCP approach to balance administrative control wi
 **Design Justification:** By delegating the Guest scope to the firewall and keeping internal scopes on the core switch, we maintain a clear "separation of concerns". The Core switch focuses on high-speed internal distribution, while the FortiGate handles the overhead of dynamic, untrusted endpoint management.
 
 ---
+## Packet Flow Summary
+
+### Egress (Outbound):
+
+* **VPC → Core:** Forwards traffic to the SVI (Default Gateway).
+
+* **Core → Firewall:** Routes unknown destinations via the Gateway of Last Resort (0.0.0.0/0).
+
+* **Firewall → Internet:** Matches security policy, applies Source NAT, and records the session.
+
+### Ingress (Return):
+
+* **Internet → Firewall:** Delivers response to the Public WAN IP.
+
+* **Firewall → Core:** Consults the Session Table to "Un-NAT" the packet, then uses a Static Route (10.10.0.0/16) to find the Core Switch.
+
+* **Core → VPC:** Delivers the packet to the specific VLAN host.
+
+---
 
 ## Verification
 
