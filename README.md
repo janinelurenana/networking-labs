@@ -1,98 +1,57 @@
-# Networking Labs
+# GNS3 Networking & Security Labs
 
-## Overview
-This repository contains hands-on networking labs built in GNS3, designed to reflect the responsibilities of **SOC analysts, NOC engineers, and junior network engineers**.
+A collection of hands-on network topologies focused on enterprise design, traffic segmentation, and security validation. These labs simulate real-world workflows for **NOC/SOC operations**, emphasizing observable evidence over simple "it works" connectivity.
 
-The labs emphasize:
-- correct network design and segmentation
-- controlled traffic flow and security boundaries
-- verification through observable evidence
-- structured troubleshooting and root-cause analysis
+## Project Focus
 
-The goal is not just connectivity, but **visibility, control, and validation**.
+Instead of just basic connectivity, these labs prioritize:
 
----
-
-## What This Repo Demonstrates (Role-Aligned)
-
-### For NOC / Junior Network Engineer
-- VLAN segmentation and inter-VLAN routing
-- Dynamic routing (OSPF) and route verification
-- NAT implementation and translation validation
-- Layer 2 / Layer 3 integration
-- Baseline configuration management
-- Connectivity and failure testing
-
-### For SOC / Security-Oriented Roles
-- Traffic control using ACLs and firewalls
-- Enforcement of least-privilege access between VLANs
-- North–South and East–West traffic awareness
-- Policy verification through packet flow outcomes
-- Documentation of misconfigurations and security-impacting failures
+* **Granular Segmentation:** Implementing VLANs and VRFs to define security boundaries.
+* **Traffic Control:** Enforcing least-privilege access via ACLs and Firewalls (North-South/East-West).
+* **Evidence-Based Validation:** Proving policy enforcement through packet captures and log analysis.
+* **Structured Troubleshooting:** Documenting root causes and systematic fixes for complex outages.
 
 ---
 
-## Lab Structure
-Each lab follows a documentation-first, evidence-backed structure:
+## Lab Architecture
+
+Every lab follows a standardized structure to mirror professional documentation workflows:
 
 ```
 /lab-name
-├── configs/             # Device startup configurations
-├── verification/        # Screenshots proving behavior and policy
-├── troubleshooting.md   # Symptoms, root causes, and fixes
-├── lessons-learned.md   # Technical and design takeaways
-└── README.md            # Lab scope, design, and validation steps
+├── configs/            # Clean startup configurations for all nodes
+├── verification/       # Evidence: screenshots of routing tables, NAT, and ACL hits
+├── troubleshooting.md  # Detailed logs of symptoms, RCA, and resolution
+├── lessons-learned.md  # Architectural takeaways and design optimization
+└── README.md           # Topology diagram, addressing plan, and scope
 ```
 
-This mirrors real operational workflows:
-- deploy
-- observe
-- verify
-- troubleshoot
-- document
+---
+
+## Featured Lab: Campus-VLAN-Firewall-ACL
+
+This lab simulates a multi-tier enterprise environment using a FortiGate firewall and Layer 3 Core switches.
+
+**Key Features:**
+
+* **OSPF Routing:** Dynamic route propagation between the core and perimeter.
+* **Inter-VLAN Security:** Hardware-level ACLs on the core and stateful inspection on the FortiGate.
+* **NAT/PAT:** Managing egress traffic for internal and guest segments.
+* **Verification:** Includes `show access-lists` hit counts and end-to-end connectivity logs.
 
 ---
 
-## Example Lab
-### Small_Enterprise_VLAN_OSPF_NAT_ACL
+## Technologies & Tools
 
-This lab simulates a small enterprise network with:
-- multiple VLANs across access switches
-- inter-VLAN routing via routed links
-- OSPF for internal route exchange
-- NAT for Internet-bound traffic
-- ACLs enforcing inter-VLAN access control
-
-**Verification artifacts include:**
-- OSPF neighbor formation
-- routing table propagation
-- NAT translation entries
-- enforced ACL blocks between VLANs
-- successful and failed connectivity tests
-
-Each behavior is validated with screenshots and logs, not assumptions.
-
----
-
-## Technologies & Concepts
-- VLANs and trunking
-- Inter-VLAN routing
-- OSPF (single-area)
-- NAT (PAT)
-- ACLs (security segmentation)
-- Firewall integration (FortiGate in later labs)
-- GNS3-based simulation
-- Linux hosts for testing and validation
-
----
-
-## Disclaimer
-These labs are educational simulations built to reflect real-world networking and security principles.  
-They are not production environments.
+* **Infrastructure:** GNS3, Cisco IOS (VLANs, Trunking, EtherChannel).
+* **Routing/Security:** OSPF, NAT/PAT, ACLs, FortiGate (FortiOS).
+* **Endpoints:** Linux (Ubuntu/Alpine) for traffic generation and testing.
+* **Validation:** Wireshark, ICMP/TCP testing, and CLI-based verification.
 
 ---
 
 ## Author
-Built and maintained by Christelle Janine M. Lureñana  
-IT student focused on networking and cybersecurity
 
+**Christelle Janine M. Lureñana,** Network & Cybersecurity Student
+
+---
