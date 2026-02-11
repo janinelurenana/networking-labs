@@ -4,18 +4,18 @@
 ip access-list extended ACL_IT_IN
  permit icmp any any echo-reply
  permit tcp any any established
- permit ip 10.10.10.0 0.0.0.255 10.10.20.0 0.0.0.255 
- permit ip 10.10.10.0 0.0.0.255 10.10.30.0 0.0.0.255
  deny ip 10.10.10.0 0.0.0.255 10.10.40.0 0.0.0.255 log
+ permit ip 10.10.10.0 0.0.0.255 10.10.20.0 0.0.0.255
+ permit ip 10.10.10.0 0.0.0.255 10.10.30.0 0.0.0.255
  permit ip 10.10.10.0 0.0.0.255 any
  deny ip any any
 !
 ip access-list extended ACL_MGMT_IN
- permit icmp any any echo-reply 
+ permit icmp any any echo-reply
  permit tcp any any established
- permit ip 10.10.20.0 0.0.0.255 10.10.30.0 0.0.0.255
  deny ip 10.10.20.0 0.0.0.255 10.10.10.0 0.0.0.255 log
  deny ip 10.10.20.0 0.0.0.255 10.10.40.0 0.0.0.255 log
+ permit ip 10.10.20.0 0.0.0.255 10.10.30.0 0.0.0.255
  permit ip 10.10.20.0 0.0.0.255 any
  deny ip any any 
 !
@@ -29,9 +29,9 @@ ip access-list extended ACL_HR_IN
  deny ip any any
 !
 ip access-list extended ACL_GUEST_IN
- permit icmp any any echo-reply 
+ permit icmp any any echo-reply
  permit tcp any any established
- deny ip 10.10.40.0 0.0.0.255 10.10.0.0 0.0.255.255 log 
+ deny ip 10.10.40.0 0.0.0.255 10.10.0.0 0.0.255.255 log
  permit ip 10.10.40.0 0.0.0.255 any
  deny ip any any
 !
